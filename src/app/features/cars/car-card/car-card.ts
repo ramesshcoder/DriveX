@@ -9,4 +9,8 @@ import { Component, Input } from '@angular/core';
 export class CarCard {
   @Input() car: any;
   constructor() {}
+  public ngOnInit(): void {
+   
+    
+  }
 }
