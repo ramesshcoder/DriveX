@@ -1,0 +1,21 @@
+.car-list {
+  padding: 2rem;
+
+  &__header {
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  &__subtitle {
+    color: var(--text-color-secondary);
+  }
+
+  &__filters {
+    background: var(--surface-card);
+  }
+}

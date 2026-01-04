@@ -1,1 +1,33 @@
-<p>car-card works!</p>
+<p-card class="car-card shadow-2 border-round-xl">
+
+  <!-- Image -->
+  <div class="car-card__image-wrapper">
+    <img
+      src="assets/images/car-placeholder.jpg"
+      alt="Car"
+      class="car-card__image"
+    />
+  </div>
+
+  <!-- Content -->
+  <div class="car-card__content">
+    <h3 class="car-card__title">BMW X5</h3>
+    <p class="car-card__subtitle">
+      Luxury • Automatic • 5 Seater
+    </p>
+
+    <div class="car-card__footer">
+      <span class="car-card__price">
+        ₹4,999 / day
+      </span>
+
+      <app-button
+        pButton
+        label="View"
+        icon="pi pi-arrow-right"
+        class="p-button-sm p-button-outlined car-card__action">
+      </app-button>
+    </div>
+  </div>
+
+</p-card>

@@ -1,1 +1,61 @@
-<p>car-list works!</p>
+<section class="car-list">
+
+  <!-- Page Header -->
+  <div class="car-list__header">
+    <h2 class="car-list__title">Available Cars</h2>
+    <p class="car-list__subtitle">
+      Choose from our wide range of premium cars
+    </p>
+  </div>
+
+  <!-- Filters -->
+  <div class="car-list__filters surface-0 p-3 border-round-xl shadow-1 mb-4">
+    <div class="grid gap-3">
+
+      <div class="col-12 md:col-3">
+        <input
+          pInputText
+          placeholder="Search car"
+          class="w-full" />
+      </div>
+
+      <div class="col-12 md:col-3">
+        <p-select
+          [options]="carTypes"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Car Type"
+          class="w-full">
+        </p-select>
+      </div>
+
+      <div class="col-12 md:col-3">
+        <p-select
+          [options]="priceRanges"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Price Range"
+          class="w-full">
+        </p-select>
+      </div>
+
+      <div class="col-12 md:col-3">
+        <app-button
+          pButton
+          label="Apply Filters"
+          class="w-full">
+        </app-button>
+      </div>
+
+      <div class="grid">
+  <div
+    class="col-12 sm:col-6 lg:col-4 xl:col-3"
+    *ngFor="let car of carsList">
+    <app-car-card [car]="car"></app-car-card>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</section>

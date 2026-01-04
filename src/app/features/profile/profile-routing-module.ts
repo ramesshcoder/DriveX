@@ -1,16 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CarList } from './car-list/car-list';
 
-const routes: Routes = [
-  {
-    path:'cars/list',
-    component : CarList
-  }
-];
+const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CarsRoutingModule { }
+export class ProfileRoutingModule { }
