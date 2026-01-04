@@ -1,0 +1,31 @@
+<div class="flex justify-content-center align-items-center min-h-screen surface-50">
+  <form [formGroup]="loginForm"
+        (ngSubmit)="onSubmit()"
+        class="surface-0 p-5 border-round-xl shadow-2 w-full sm:w-25rem">
+
+    <h2 class="text-center mb-4">Login</h2>
+
+    <div class="mb-3">
+      <input pInputText
+             type="email"
+             placeholder="Email"
+             formControlName="email"
+             class="w-full" />
+    </div>
+
+    <div class="mb-4">
+      <p-password
+        placeholder="Password"
+        formControlName="password"
+        [feedback]="false"
+        class="w-full">
+      </p-password>
+    </div>
+
+    <button pButton
+            type="submit"
+            label="Login"
+            class="w-full">
+    </button>
+  </form>
+</div>
