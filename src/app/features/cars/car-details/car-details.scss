@@ -1,0 +1,37 @@
+.main-image {
+  height: 420px;
+  object-fit: cover;
+}
+
+.thumb-image {
+  height: 120px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .main-image {
+    height: 280px;
+  }
+}
+.main-image {
+  height: 420px;
+  object-fit: cover;
+}
+
+.thumb-image {
+  height: 120px;
+  object-fit: cover;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.thumb-image:hover {
+  opacity: 1;
+}
+
+.active-thumb {
+  opacity: 1;
+  border: 2px solid var(--primary-color);
+}

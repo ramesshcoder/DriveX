@@ -1,1 +1,119 @@
-<p>car-details works!</p>
+<div class="surface-section px-3 py-4 md:px-5">
+
+  <div class="grid">
+
+    <!-- LEFT : IMAGES -->
+    <div class="col-12 lg:col-6">
+
+      <img
+        [src]="selectedImage"
+        class="w-full border-round-xl shadow-2 main-image" />
+
+      <div class="grid mt-3">
+  <div
+    class="col-4"
+    *ngFor="let img of car.images">
+
+    <img
+      [src]="img"
+      (click)="onThumbnailClick(img)"
+      class="w-full border-round-lg thumb-image"
+      [class.active-thumb]="selectedImage === img" />
+
+  </div>
+</div>
+
+    </div>
+
+    <!-- RIGHT : DETAILS -->
+    <div class="col-12 lg:col-6">
+
+      <div class="flex flex-column gap-4">
+
+        <!-- TITLE -->
+        <div>
+          <h1 class="text-4xl font-bold m-0">{{ car.name }}</h1>
+          <p class="text-lg text-color-secondary mt-1">
+            {{ car.brand }} • {{ car.type }}
+          </p>
+        </div>
+
+        <!-- PRICE -->
+        <div class="surface-100 p-4 border-round-xl">
+          <span class="text-4xl font-bold text-primary">
+            ₹{{ car.pricePerDay }}
+          </span>
+          <span class="text-lg text-color-secondary">
+            / day
+          </span>
+        </div>
+
+        <!-- QUICK SPECS -->
+        <div class="grid text-lg">
+
+          <div class="col-6">
+            🚗 {{ car.transmission }}
+          </div>
+
+          <div class="col-6">
+            ⛽ {{ car.fuelType }}
+          </div>
+
+          <div class="col-6">
+            👥 {{ car.seats }} Seats
+          </div>
+
+          <div class="col-6">
+            ⭐ {{ car.rating }} Rating
+          </div>
+
+        </div>
+
+        <!-- DESCRIPTION -->
+        <p class="text-lg line-height-3">
+          {{ car.description }}
+        </p>
+
+        <!-- SPECIFICATIONS -->
+        <div>
+          <h3 class="text-2xl font-semibold mb-3">
+            Specifications
+          </h3>
+
+          <div class="grid text-lg surface-100 p-4 border-round-xl">
+            <div class="col-6">Mileage: <b>{{ car.specs.mileage }}</b></div>
+            <div class="col-6">Engine: <b>{{ car.specs.engine }}</b></div>
+            <div class="col-6">Power: <b>{{ car.specs.power }}</b></div>
+            <div class="col-6">Boot: <b>{{ car.specs.bootSpace }}</b></div>
+          </div>
+        </div>
+
+        <!-- FEATURES -->
+        <div>
+          <h3 class="text-2xl font-semibold mb-2">
+            Features
+          </h3>
+
+          <ul class="grid list-none p-0 text-lg">
+            <li
+              class="col-6"
+              *ngFor="let feature of car.features">
+              ✔ {{ feature }}
+            </li>
+          </ul>
+        </div>
+
+        <!-- CTA -->
+        <app-button
+          label="Book This Car"
+          size="large"
+          severity="primary"
+          class="w-full text-xl">
+        </app-button>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

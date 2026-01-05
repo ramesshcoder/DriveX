@@ -1,39 +1,60 @@
-<div class="car-card">
+<div
+  class="surface-card border-round-xl shadow-2 overflow-hidden
+         flex flex-column h-full transition-transform transition-duration-300
+         hover:-translate-y-2">
 
   <!-- Image -->
-  <div class="car-card__image-wrapper">
+  <div class="h-12rem overflow-hidden bg-gray-100">
     <img
-      class="car-card__image"
       [src]="car.imageUrl"
-      [alt]="car.name" />
+      [alt]="car.name"
+      class="w-full h-full object-fit-cover" />
   </div>
 
   <!-- Content -->
-  <div class="car-card__content">
+  <div class="p-3 flex flex-column gap-2 flex-grow-1">
 
-    <div class="car-card__header">
-      <h3 class="car-card__title">{{ car.name }}</h3>
-      <span class ="car-card__brand">{{ car.brand }}</span>
+    <!-- Header -->
+    <div class="flex justify-content-between align-items-start">
+      <div>
+        <h3 class="text-lg font-semibold m-0">{{ car.name }}</h3>
+        <span class="text-sm text-color-secondary">{{ car.brand }}</span>
+      </div>
+
+      <span class="text-sm font-medium text-yellow-500">
+        ⭐ {{ car.rating }}
+      </span>
     </div>
 
-    <div class="car-card__meta">
-      <span>{{ car.type }}</span>
-      <span>{{ car.fuelType }}</span>
-      <span>{{ car.transmission }}</span>
+    <!-- Meta -->
+    <div class="flex flex-wrap gap-2">
+      <span class="text-xs px-2 py-1 border-round-full surface-100">
+        {{ car.type }}
+      </span>
+      <span class="text-xs px-2 py-1 border-round-full surface-100">
+        {{ car.fuelType }}
+      </span>
+      <span class="text-xs px-2 py-1 border-round-full surface-100">
+        {{ car.transmission }}
+      </span>
     </div>
 
-    <div class="car-card__footer">
-      <div class="car-card__price">
-        ₹{{ car.pricePerDay }}/day
+    <!-- Footer -->
+    <div class="flex justify-content-between align-items-center mt-auto pt-2">
+      <div class="flex align-items-baseline gap-1">
+        <span class="text-xl font-bold text-primary">
+          ₹{{ car.pricePerDay }}
+        </span>
+        <span class="text-sm text-color-secondary">/day</span>
       </div>
 
       <app-button
-        pButton
         label="View Details"
-        class="car-card__action">
+        size="small"
+        severity="primary"
+        routerLink="/cars/car-details">
       </app-button>
     </div>
 
   </div>
-
 </div>
