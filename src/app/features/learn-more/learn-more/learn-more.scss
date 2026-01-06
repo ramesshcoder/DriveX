@@ -1,0 +1,21 @@
+.learn-more {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.learn-more__hero {
+  background: linear-gradient(135deg, #eef2ff, #ffffff);
+}
+
+.step-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin: 0 auto;
+}

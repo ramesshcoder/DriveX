@@ -6,6 +6,7 @@ import { Home } from './home/home';
 import { LayoutModule } from '../../layout/layout-module';
 import { SharedModule } from '../../shared/shared-module';
 import { CarsModule } from '../cars/cars-module';
+import { LearnMoreModule } from '../learn-more/learn-more-module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { CarsModule } from '../cars/cars-module';
     HomeRoutingModule,
     LayoutModule,
     SharedModule,
-    CarsModule
+    CarsModule,
+    LearnMoreModule
   ],
   
 })

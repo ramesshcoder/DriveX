@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { LearnMoreRoutingModule } from './learn-more-routing-module';
 import { LearnMore } from './learn-more/learn-more';
+import { SharedModule } from "../../shared/shared-module";
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { LearnMore } from './learn-more/learn-more';
   ],
   imports: [
     CommonModule,
-    LearnMoreRoutingModule
-  ]
+    LearnMoreRoutingModule,
+    SharedModule
+]
 })
 export class LearnMoreModule { }
