@@ -30,6 +30,8 @@
     "@angular/platform-browser": "^20.2.0",
     "@angular/router": "^20.2.0",
     "@primeuix/themes": "^2.0.2",
+    "lottie-web": "^5.13.0",
+    "ngx-lottie": "^20.0.0",
     "primeflex": "^4.0.0",
     "primeicons": "^7.0.0",
     "primeng": "^21.0.2",
