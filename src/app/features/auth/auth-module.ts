@@ -7,21 +7,21 @@ import { Login } from './login/login';
 import { ButtonModule } from 'primeng/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
-import { PasswordModule } from 'primeng/password'
-
+import { PasswordModule } from 'primeng/password';
+import { SharedModule } from "../../shared/shared-module";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    SignUp,
-    Login
-  ],
+  declarations: [SignUp, Login],
   imports: [
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
     InputTextModule,
     PasswordModule,
-    ButtonModule
-  ]
+    ButtonModule,
+    SharedModule,
+    HttpClientModule
+],
 })
-export class AuthModule { }
+export class AuthModule {}

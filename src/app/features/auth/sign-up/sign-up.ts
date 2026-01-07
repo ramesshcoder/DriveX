@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SignupFormFields, signUpInfo } from '../entities';
+import { AuthsService, IIDto } from '../Providers/auths-service';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-sign-up',
@@ -8,19 +11,37 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './sign-up.scss',
 })
 export class SignUp {
-  public signupForm: FormGroup;
+  protected signupForm: FormGroup;
+  protected SignupFormFields = SignupFormFields;
+  protected passwordMismatched: boolean = false;
 
-  constructor(private fb: FormBuilder) {
-    this.signupForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
+  constructor(private readonly _fb: FormBuilder, private readonly _authService: AuthsService) {
+    this.signupForm = this._fb.group({
+      [this.SignupFormFields.Name]: ['', Validators.required],
+      [this.SignupFormFields.Email]: ['', [Validators.required, Validators.email]],
+      [this.SignupFormFields.Password]: ['', Validators.required],
+      [this.SignupFormFields.ConfirmPassword]: ['', Validators.required],
+      [this.SignupFormFields.ContactNo]: [null],
     });
   }
 
-  public onSubmit(): void {
-    if (this.signupForm.invalid) return;
-    console.log(this.signupForm.value);
+  public signup(): void {
+    if (this.signupForm.invalid) {
+      alert('fill all details properly');
+      return;
+    }
+    const payload: signUpInfo = {
+      name: this.signupForm.get(this.SignupFormFields.Name)?.value,
+      email: this.signupForm.get(this.SignupFormFields.Email)?.value,
+      contactNo: this.signupForm.get(this.SignupFormFields.ContactNo)?.value,
+      password: this.signupForm.get(this.SignupFormFields.Password)?.value,
+      confirmPassword: this.signupForm.get(this.SignupFormFields.ConfirmPassword)?.value,
+    };
+
+    this._authService.signUp(payload).pipe(
+      tap((res: IIDto) => {
+        console.log(res);
+      })
+    ).subscribe();
   }
 }

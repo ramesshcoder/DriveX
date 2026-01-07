@@ -1,46 +1,66 @@
-<div class="flex justify-content-center align-items-center min-h-screen surface-50">
-  <form [formGroup]="signupForm"
-        (ngSubmit)="onSubmit()"
-        class="surface-0 p-5 border-round-xl shadow-2 w-full sm:w-25rem">
+<form
+  [formGroup]="signupForm"
+  class="surface-card p-5 border-round-xl shadow-2 max-w-30rem mx-auto"
+>
+  <h2 class="text-2xl font-bold mb-4 text-center">Create Account</h2>
 
-    <h2 class="text-center mb-4">Create Account</h2>
+  <!-- Name -->
+  <div class="mb-4">
+    <input
+      pInputText
+      class="w-full"
+      placeholder="Full Name"
+      [formControlName]="this.SignupFormFields.Name"
+    />
+  </div>
 
-    <div class="mb-3">
-      <input pInputText
-             placeholder="Full Name"
-             formControlName="name"
-             class="w-full" />
-    </div>
+  <!-- Email -->
+  <div class="mb-4">
+    <input
+      pInputText
+      class="w-full"
+      placeholder="Email Address"
+      [formControlName]="this.SignupFormFields.Email"
+    />
+  </div>
 
-    <div class="mb-3">
-      <input pInputText
-             type="email"
-             placeholder="Email"
-             formControlName="email"
-             class="w-full" />
-    </div>
+  <!-- Contact No -->
+  <div class="mb-4">
+    <input
+      pInputText
+      class="w-full"
+      placeholder="Contact Number"
+      maxlength="10"
+      [formControlName]="this.SignupFormFields.ContactNo"
+    />
+  </div>
 
-    <div class="mb-3">
-      <p-password
-        placeholder="Password"
-        formControlName="password"
-        class="w-full">
-      </p-password>
-    </div>
+  <!-- Password -->
+  <div class="mb-4">
+    <input
+      pInputText
+      type="password"
+      class="w-full"
+      placeholder="Password"
+      [formControlName]="this.SignupFormFields.Password"
+    />
+  </div>
 
-    <div class="mb-4">
-      <p-password
-        placeholder="Confirm Password"
-        formControlName="confirmPassword"
-        [feedback]="false"
-        class="w-full">
-      </p-password>
-    </div>
+  <!-- Confirm Password -->
+  <div class="mb-4">
+    <input
+      pInputText
+      type="password"
+      class="w-full"
+      placeholder="Confirm Password"
+      [formControlName]="this.SignupFormFields.ConfirmPassword"
+    />
 
-    <button pButton
-            type="submit"
-            label="Sign Up"
-            class="w-full">
-    </button>
-  </form>
-</div>
+    <small *ngIf="passwordMismatched" class="text-red-500"> Passwords do not match </small>
+  </div>
+
+  <!-- Submit -->
+  <div class="text-center">
+    <app-button label="Sign Up" severity="primary" (click)="signup()"> </app-button>
+  </div>
+</form>

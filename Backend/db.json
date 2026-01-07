@@ -1,5 +1,12 @@
 {
-    "signUp":[
-        
-    ]
+  "signUp": [
+    {
+      "id": "eeeb",
+      "name": "Admin",
+      "email": "admin@drivex.com",
+      "contactNo": "9005406351",
+      "password": "admin@drivex",
+      "confirmPassword": "admin@drivex"
+    }
+  ]
 }

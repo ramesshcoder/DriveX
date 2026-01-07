@@ -5,6 +5,7 @@ import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { App } from './app';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
