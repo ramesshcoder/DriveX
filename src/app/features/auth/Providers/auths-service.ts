@@ -18,5 +18,6 @@ export class AuthsService {
   }
 }
 export interface IIDto {
-  ID: number;
+  ID: string;
+  
 }

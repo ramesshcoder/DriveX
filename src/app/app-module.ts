@@ -5,7 +5,9 @@ import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { LoaderInterceptor } from './core/Interceptors/loader-interceptor';
+import { SharedModule } from './shared/shared-module';
 
 @NgModule({
   declarations: [
@@ -15,15 +17,22 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
     providePrimeNG({
       theme: {
         preset: Aura
-      }
-    })
+      },
+      
+    }),
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: LoaderInterceptor,
+    multi: true
+  }
   ],
   bootstrap: [App]
 })
