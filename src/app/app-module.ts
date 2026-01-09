@@ -8,6 +8,7 @@ import { App } from './app';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoaderInterceptor } from './core/Interceptors/loader-interceptor';
 import { SharedModule } from './shared/shared-module';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SharedModule } from './shared/shared-module';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    ToastModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
