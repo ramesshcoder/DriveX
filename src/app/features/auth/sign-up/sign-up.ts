@@ -32,7 +32,7 @@ export class SignUp {
     });
   }
 
-  public signup(): void {
+  protected signup(): void {
     if (this.signupForm.invalid) {
       alert('fill all details properly');
       return;
@@ -42,7 +42,6 @@ export class SignUp {
       this.signupForm.get(this.SignupFormFields.Password)?.value !==
       this.signupForm.get(this.SignupFormFields.ConfirmPassword)?.value
     ) {
-      alert('password not mathced');
     }
     const payload: signUpInfo = {
       name: this.signupForm.get(this.SignupFormFields.Name)?.value,
@@ -52,7 +51,6 @@ export class SignUp {
       confirmPassword: this.signupForm.get(this.SignupFormFields.ConfirmPassword)?.value,
     };
 
-    // SHOW loader
     this._loaderService.show();
 
     this._authService.signUp(payload).subscribe({
