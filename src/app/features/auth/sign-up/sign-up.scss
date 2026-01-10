@@ -1,0 +1,57 @@
+/* ===== PAGE WRAPPER ===== */
+.signup-page {
+  background: linear-gradient(135deg, #f8fafc, #eef2f7);
+}
+
+/* ===== LEFT IMAGE SECTION ===== */
+.signup-visual {
+  background: linear-gradient(160deg, #0f172a, #020617);
+  padding: 3rem;
+}
+
+.signup-image {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ===== RIGHT FORM SECTION ===== */
+.signup-form {
+  padding: 2rem;
+}
+
+/* ===== FORM CARD ===== */
+.signup-form form {
+  animation: fadeUp 0.6s ease;
+}
+
+/* ===== INPUT SPACING FIX ===== */
+:host ::ng-deep input[pInputText] {
+  height: 3rem;
+  font-size: 0.95rem;
+}
+
+/* ===== SUBMIT BUTTON FULL WIDTH ===== */
+:host ::ng-deep app-button {
+  width: 100%;
+}
+
+/* ===== MOBILE OPTIMIZATION ===== */
+@media (max-width: 768px) {
+  .signup-form {
+    padding: 1.5rem;
+  }
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

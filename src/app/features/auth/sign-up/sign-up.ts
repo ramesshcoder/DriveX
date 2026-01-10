@@ -33,14 +33,13 @@ export class SignUp {
   }
 
   protected signup(): void {
-    this._toastService.success('Signup successful!');
-
-   
+    this._toastService.error('Signup successful!');
 
     if (
       this.signupForm.get(this.SignupFormFields.Password)?.value !==
       this.signupForm.get(this.SignupFormFields.ConfirmPassword)?.value
     ) {
+
     }
     const payload: signUpInfo = {
       name: this.signupForm.get(this.SignupFormFields.Name)?.value,
@@ -53,8 +52,10 @@ export class SignUp {
     this._loaderService.show();
 
     this._authService.signUp(payload).subscribe({
+      
       next: () => {
         this._toastService.success('Signup successful!');
+        this.signupForm.reset();
       },
       error: () => {
         this._toastService.error('Signup failed. Try again.');

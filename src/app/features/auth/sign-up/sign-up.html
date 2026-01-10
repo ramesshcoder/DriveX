@@ -1,66 +1,90 @@
-<form
-  [formGroup]="signupForm"
-  class="surface-card p-5 border-round-xl shadow-2 max-w-30rem mx-auto"
->
-  <h2 class="text-2xl font-bold mb-4 text-center">Create Account</h2>
+<div class="signup-page flex min-h-screen">
 
-  <!-- Name -->
-  <div class="mb-4">
-    <input
-      pInputText
-      class="w-full"
-      placeholder="Full Name"
-      [formControlName]="this.SignupFormFields.Name"
+  <!-- LEFT : Image / Illustration -->
+  <div class="signup-visual hidden md:flex flex-1 align-items-center justify-content-center">
+    <img
+      src="images/signup.svg"
+      alt="Signup Illustration"
+      class="signup-image"
     />
   </div>
 
-  <!-- Email -->
-  <div class="mb-4">
-    <input
-      pInputText
-      class="w-full"
-      placeholder="Email Address"
-      [formControlName]="this.SignupFormFields.Email"
-    />
-  </div>
+  <!-- RIGHT : Form -->
+  <div class="signup-form flex-1 flex align-items-center justify-content-center">
+    <form
+      [formGroup]="signupForm"
+      class="surface-card p-6 border-round-2xl shadow-2 w-full max-w-30rem"
+    >
+      <h2 class="text-2xl font-bold mb-2 text-center">Create Account</h2>
+      <p class="text-500 mb-4 text-center">
+        Join us and start your journey 🚀
+      </p>
 
-  <!-- Contact No -->
-  <div class="mb-4">
-    <input
-      pInputText
-      class="w-full"
-      placeholder="Contact Number"
-      maxlength="10"
-      [formControlName]="this.SignupFormFields.ContactNo"
-    />
-  </div>
+      <!-- Name -->
+      <div class="mb-3">
+        <input
+          pInputText
+          class="w-full"
+          placeholder="Full Name"
+          [formControlName]="SignupFormFields.Name"
+        />
+      </div>
 
-  <!-- Password -->
-  <div class="mb-4">
-    <input
-      pInputText
-      type="password"
-      class="w-full"
-      placeholder="Password"
-      [formControlName]="this.SignupFormFields.Password"
-    />
-  </div>
+      <!-- Email -->
+      <div class="mb-3">
+        <input
+          pInputText
+          class="w-full"
+          placeholder="Email Address"
+          [formControlName]="SignupFormFields.Email"
+        />
+      </div>
 
-  <!-- Confirm Password -->
-  <div class="mb-4">
-    <input
-      pInputText
-      type="password"
-      class="w-full"
-      placeholder="Confirm Password"
-      [formControlName]="this.SignupFormFields.ConfirmPassword"
-    />
+      <!-- Contact -->
+      <div class="mb-3">
+        <input
+          pInputText
+          class="w-full"
+          placeholder="Contact Number"
+          maxlength="10"
+          [formControlName]="SignupFormFields.ContactNo"
+        />
+      </div>
 
-    <small *ngIf="passwordMismatched" class="text-red-500"> Passwords do not match </small>
-  </div>
+      <!-- Password -->
+      <div class="mb-3">
+        <input
+          pInputText
+          type="password"
+          class="w-full"
+          placeholder="Password"
+          [formControlName]="SignupFormFields.Password"
+        />
+      </div>
 
-  <!-- Submit -->
-  <div class="text-center">
-    <app-button label="Sign Up" severity="primary" (click)="signup()"> </app-button>
+      <!-- Confirm Password -->
+      <div class="mb-2">
+        <input
+          pInputText
+          type="password"
+          class="w-full"
+          placeholder="Confirm Password"
+          [formControlName]="SignupFormFields.ConfirmPassword"
+        />
+        <small *ngIf="passwordMismatched" class="text-red-500">
+          Passwords do not match
+        </small>
+      </div>
+
+      <!-- Submit -->
+      <div class="mt-4">
+        <app-button
+          label="Sign Up"
+          severity="primary"
+          class="w-full"
+          (click)="signup()"
+        ></app-button>
+      </div>
+    </form>
   </div>
-</form>
+</div>
