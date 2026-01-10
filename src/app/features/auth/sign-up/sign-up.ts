@@ -21,7 +21,7 @@ export class SignUp {
     private readonly _fb: FormBuilder,
     private readonly _authService: AuthsService,
     private _loaderService: LoaderService,
-    private _toastService:ToastService
+    private _toastService: ToastService
   ) {
     this.signupForm = this._fb.group({
       [this.SignupFormFields.Name]: ['', Validators.required],
@@ -33,10 +33,9 @@ export class SignUp {
   }
 
   protected signup(): void {
-    if (this.signupForm.invalid) {
-      alert('fill all details properly');
-      return;
-    }
+    this._toastService.success('Signup successful!');
+
+   
 
     if (
       this.signupForm.get(this.SignupFormFields.Password)?.value !==

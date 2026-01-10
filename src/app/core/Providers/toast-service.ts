@@ -6,19 +6,32 @@ import { ToastMessage } from './entities';
   providedIn: 'root',
 })
 export class ToastService {
-  private toastSubject = new Subject<ToastMessage>();
 
+  private toastSubject = new Subject<ToastMessage>();
   toast$ = this.toastSubject.asObservable();
 
-  public success(message: string) {
-    this.toastSubject.next({ type: 'success', message });
+  success(message: string) {
+    this.toastSubject.next({
+      severity: 'success',
+      summary: 'Success',
+      detail: message
+    });
   }
 
-  public error(message: string) {
-    this.toastSubject.next({ type: 'error', message });
+  error(message: string) {
+    this.toastSubject.next({
+      severity: 'error',
+      summary: 'Error',
+      detail: message
+    });
   }
 
-  public info(message: string) {
-    this.toastSubject.next({ type: 'info', message });
+  info(message: string) {
+    this.toastSubject.next({
+      severity: 'info',
+      summary: 'Info',
+      detail: message
+    });
+  
   }
 }

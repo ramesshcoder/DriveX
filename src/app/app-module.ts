@@ -9,33 +9,32 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoaderInterceptor } from './core/Interceptors/loader-interceptor';
 import { SharedModule } from './shared/shared-module';
 import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
-  declarations: [
-    App
-  ],
+  declarations: [App],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
-    ToastModule
+    ToastModule,
   ],
   providers: [
+    MessageService,
     provideBrowserGlobalErrorListeners(),
     providePrimeNG({
       theme: {
-        preset: Aura
+        preset: Aura,
       },
-      
     }),
     {
-    provide: HTTP_INTERCEPTORS,
-    useClass: LoaderInterceptor,
-    multi: true
-  }
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true,
+    },
   ],
-  bootstrap: [App]
+  bootstrap: [App],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,5 +1,7 @@
-export type ToastType = 'success' | 'error' | 'info' | 'warn';
+export type ToastSeverity = 'success' | 'info' | 'warn' | 'error';
+
 export interface ToastMessage {
-  type: ToastType;
-  message: string;
+  severity: ToastSeverity;
+  summary: string;
+  detail: string;
 }
