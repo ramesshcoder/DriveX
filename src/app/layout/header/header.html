@@ -2,13 +2,12 @@
   <div class="flex align-items-center justify-content-between px-4 py-3">
 
     <!-- Logo -->
-    <div class="flex align-items-center gap-2">
-      <i class="pi pi-car text-2xl text-primary"></i>
-      <span class="text-xl font-semibold">DriveNow</span>
+    <div class="header-logo flex align-items-center">
+      <img [src]="logoUrl" alt="DriveX Logo" />
     </div>
 
     <!-- Navigation -->
-    <nav class="flex gap-4">
+    <nav class="flex gap-4 align-items-center">
       <a class="text-color hover:text-primary cursor-pointer">Home</a>
       <a class="text-color hover:text-primary cursor-pointer" routerLink="cars/list">Cars</a>
       <a class="text-color hover:text-primary cursor-pointer" routerLink="about">About</a>
@@ -16,7 +15,7 @@
     </nav>
 
     <!-- Actions -->
-    <div class="flex gap-2">
+    <div class="flex gap-2 align-items-center">
       <button class="p-button p-button-text" routerLink="auth/login">Login</button>
       <button class="p-button p-button-primary" routerLink="auth/signup">Sign Up</button>
     </div>

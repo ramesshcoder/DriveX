@@ -1,0 +1,6 @@
+.header-logo img {
+  height: 40px;          /* perfect for header */
+  width: auto;           /* keep aspect ratio */
+  object-fit: contain;
+  cursor: pointer;
+}
